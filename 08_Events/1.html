@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    //Asyncronus
+    //onclick="alert('owl')"
+
+    // OR
+
+    // document.getElementById('owl').onclick = function(){
+    //     alert('owl')
+    // }
+
+    // OR
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //         alert('owl clicked')
+    //     }, false)    ///false not reduired as Defaut
+
+    // attachEvent()
+    // jQuery - on
+
+    // type, timestamp, preventDefault
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altKey, ctrlKey, shiftKey, keyCode
+
+    // event propigation :-  1) event bubling  2) event capturing
+
+
+    //event bubling
+    // document.getElementById('images').addEventListener('click', function(e){
+    //         console.log("clicked inside the ul");
+
+    //     },false)
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //         console.log('owl clicked')    //first li then ul 
+    //     },false)
+
+    // event capturing
+    // document.getElementById('images').addEventListener('click', function(e){
+    //         console.log("clicked inside the ul");
+
+    //     },true)
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //         console.log('owl clicked')     //first ul then li
+    //     },true)
+
+
+
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     console.log("clicked inside the ul");
+
+    // })
+    // document.getElementById('owl').addEventListener('click', function (e) {
+    //     console.log('owl clicked')
+    //     e.stopPropagation()
+    // })
+
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+
+    // })
+
+
+    //small project
+    document.querySelector('#images').addEventListener('click', function (e) {  //spilOver problem happen: link was deleting its parent lode ul
+        // console.log(e.target)
+        // console.log(e.target.id)
+        // console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removwIt = e.target.parentNode
+            removwIt.remove()
+        }
+
+        // let removwIt = e.target.parentNode
+        // removwIt.remove()
+        // OR
+        // removwIt.parentNode.removeChild(removwIt)
+
+    })
+</script>
+
+</html>
